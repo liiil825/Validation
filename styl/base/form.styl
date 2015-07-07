@@ -1,0 +1,56 @@
+@require './../globals/variables'
+
+form(height = form-height, width = form-width, text-indent = form-text-indent)
+  input
+    height: height
+
+  select,
+  input[type="text"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="password"]
+    text-align: right
+    width: width
+    text-indent: text-indent
+    border-radius: border-radius-normal
+    appearance: none
+    padding:  form-padding-v form-padding-h
+    border: border-width-normal solid border-color
+
+    &:focus
+      outline: none
+      border-color: color-blue
+
+  input[disabled="disabled"],
+  select[disabled="disabled"]
+    background-color: color-bg
+
+  input[type="radio"]
+    cursor: pointer
+
+  select
+    direction: rtl
+
+  label
+    display: inline-block
+    cursor: pointer
+
+  .btn
+    display: block
+    margin: 3em auto
+    padding: .8em 5em
+    text-align: center
+    border: 1px solid color-active
+    border-radius: border-radius-default
+
+  .btn
+    background-color: color-active
+    color: white
+
+  @media only screen and (min-device-width : 320px) and (max-device-width : 568px)
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="password"],
+    select
+      width: mobile-form-width

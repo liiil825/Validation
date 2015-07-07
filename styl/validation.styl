@@ -1,0 +1,70 @@
+@require 'plugins/reset'
+@require 'base/form'
+
+@require 'base/layout'
+
+.l-form
+  margin: 3em auto
+
+  form()
+
+  > li
+    padding: 10px 0
+
+  input[type="text"].unvalid,
+  input[type="tel"].unvalid,
+  input[type="number"].unvalid,
+  input[type="password"].unvalid
+    display: inline-block
+    border-color: lighten(#ff0000, 20)
+    animation: unvalid vform-unvalid-duration ease-in-out
+
+    & + .validation-note
+      position: absolute
+      border: border-width-normal solid vform-note-bc
+      border-radius: border-radius-normal
+      text-indent: 5px
+      z-index: z-index-t1
+      background-color: vform-note-bc
+      color: vform-note-color
+      opacity: 0
+      transform: translate3d( 0, -30%, 0)
+      animation: note-show vform-unvalid-duration ease-in-out vform-unvalid-duration 1 normal both
+
+      &:before
+        content: ''
+        position: absolute
+        width: 0
+        height: 0
+        margin-top: 2em
+        border-style: solid
+        border-width: vform-note-border-width
+        border-color: vform-note-bc transparent transparent transparent
+
+@keyframes unvalid
+  0%
+    transform: translate3d(-10%, 0, 0)
+  40%
+    transform: translate3d(10%, 0, 0)
+
+  50%
+    transform: translate3d(-5%, 0, 0)
+  60%
+    transform: translate3d(5%, 0, 0)
+
+  75%
+    transform: translate3d(-3%, 0, 0)
+  90%
+    transform: translate3d(3%, 0, 0)
+
+  100%
+    transform: translate3d(0, 0, 0)
+
+@keyframes note-show
+  0%
+    opacity: 0
+    transform: translate3d( 0, -30%, 0)
+  100%
+    opacity: 1
+    transform: translate3d( 0, 0, 0)
+

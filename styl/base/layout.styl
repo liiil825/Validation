@@ -1,0 +1,29 @@
+@require './../globals/variables'
+
+l-ct()
+  width: l-container-width
+  margin: 0 auto
+l-cf()
+  *zoom: 1
+
+  &:before,
+  &:after
+    content: ""
+    display: table
+
+  &:after
+    clear: both
+
+.l-left
+  float: left
+.l-right
+  float: right
+
+.l-ct
+  l-ct()
+
+.l-form
+  l-ct()
+
+.l-cf
+  l-cf()
